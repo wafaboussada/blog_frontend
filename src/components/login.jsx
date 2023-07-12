@@ -25,7 +25,8 @@ function Login() {
           console.log(res);
           SetError(false);
           navigate('/');
-          dispatch(loginSucces(res.data)); //***** */
+          dispatch(loginSucces(res.data));
+          localStorage.setItem('user', JSON.stringify(res.data));
         } catch(err) {
           if (err.response.data.message === 'INVALID_USERNAME') {
             SetError(true)
