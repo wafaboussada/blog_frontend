@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 
 function Post(props) {
     const { post } = props;
+    const imagePath = "http://localhost:5000/images/";
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="" />
+      {post.picture && (
+      <Card.Img variant="top" src={imagePath + post.picture} />
+      )}
       <Card.Body>
         <Card.Title>{post.title}</Card.Title>
         <Card.Text>

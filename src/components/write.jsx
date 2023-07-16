@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { fetchcategories } from "../store/category";
 function Write() {
+  const navigate = useNavigate();
     const [categoriesSelected, setCategoeisSelected] = useState([]);
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
@@ -64,6 +65,7 @@ function Write() {
         try {
             const res = await axios.post("/posts", newPost);
             console.log('create post result', res);
+            navigate('/');
         } catch (err) {
             console.log(err);
         }
